@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Congratulations Jamilia! 🎓</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+
+      /* Background Image - GANTI DI SINI */
+      .bg-custom {
+        background-image: url("/assets/bg/jamilia.jpg");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+      }
+
+      /* Overlay gradient */
+      .overlay {
+        background: linear-gradient(
+          135deg,
+          rgba(255, 182, 193, 0.9) 0%,
+          rgba(255, 105, 180, 0.8) 100%
+        );
+      }
+
+      /* Animations */
+      .fade-in {
+        animation: fadeIn 1.5s ease-out;
+      }
+
+      .slide-up {
+        animation: slideUp 1s ease-out 0.5s both;
+      }
+
+      .bounce-in {
+        animation: bounceIn 1.2s ease-out 1s both;
+      }
+
+      .float {
+        animation: float 3s ease-in-out infinite;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes bounceIn {
+        0% {
+          opacity: 0;
+          transform: scale(0.3);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1.05);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      /* Confetti Animation */
+      .confetti {
+        position: fixed;
+        width: 10px;
+        height: 10px;
+        background: #ff69b4;
+        animation: confetti-fall 3s linear infinite;
+      }
+
+      @keyframes confetti-fall {
+        0% {
+          transform: translateY(-100vh) rotate(0deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(100vh) rotate(720deg);
+          opacity: 0;
+        }
+      }
+
+      /* Glass effect */
+      .glass {
+        background: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+
+      /* Photo frame */
+      .photo-frame {
+        border: 4px solid white;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Message card */
+      .message-card {
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.9) 0%,
+          rgba(255, 182, 193, 0.3) 100%
+        );
+        backdrop-filter: blur(15px);
+      }
+    </style>
+  </head>
+  <body class="bg-custom min-h-screen">
+    <!-- Overlay -->
+    <div class="overlay min-h-screen">
+      <!-- Confetti Elements -->
+      <div
+        class="confetti"
+        style="left: 10%; animation-delay: 0s; background: #ff1493"
+      ></div>
+      <div
+        class="confetti"
+        style="left: 20%; animation-delay: 0.5s; background: #ff69b4"
+      ></div>
+      <div
+        class="confetti"
+        style="left: 30%; animation-delay: 1s; background: #ffc0cb"
+      ></div>
+      <div
+        class="confetti"
+        style="left: 40%; animation-delay: 1.5s; background: #ff1493"
+      ></div>
+      <div
+        class="confetti"
+        style="left: 50%; animation-delay: 2s; background: #ff69b4"
+      ></div>
+      <div
+        class="confetti"
+        style="left: 60%; animation-delay: 0.3s; background: #ffc0cb"
+      ></div>
+      <div
+        class="confetti"
+        style="left: 70%; animation-delay: 0.8s; background: #ff1493"
+      ></div>
+      <div
+        class="confetti"
+        style="left: 80%; animation-delay: 1.3s; background: #ff69b4"
+      ></div>
+      <div
+        class="confetti"
+        style="left: 90%; animation-delay: 1.8s; background: #ffc0cb"
+      ></div>
+
+      <!-- Main Container -->
+      <div class="container mx-auto px-4 py-8 min-h-screen flex flex-col">
+        <!-- Header -->
+        <div class="text-center fade-in mb-8">
+          <div class="text-6xl mb-4 float">🎓</div>
+          <h1 class="text-4xl font-bold text-white mb-2 drop-shadow-lg">
+            Congratulations!
+          </h1>
+          <div class="text-2xl font-semibold text-white/90 drop-shadow-md">
+            ✨ Non Adin✨
+          </div>
+        </div>
+
+        <!-- Photo Section -->
+        <div
+          class="flex-1 flex flex-col items-center justify-center space-y-6 slide-up"
+        >
+          <!-- Main Photo - GANTI FOTO DI SINI -->
+          <div class="photo-frame rounded-2xl overflow-hidden">
+            <img
+              src="/assets/photos/jamilia.jpg"
+              alt="Jamilia Graduation Photo"
+              class="w-64 h-64 object-cover"
+              id="mainPhoto"
+            />
+          </div>
+        <!-- Message Section -->
+        <div class="bounce-in">
+          <div class="message-card rounded-3xl p-6 mx-4 mb-8 shadow-2xl">
+            <div class="text-center">
+              <h2 class="text-2xl font-bold text-pink-800 mb-4">
+                🌟Happy Graduation!
+              </h2>
+              <p class="text-pink-700 leading-relaxed mb-4">
+                Yeay, congrats guys atas kelulusannya! Semoga masuk SMA impian ya! 🎉
+              </p>
+              <p class="text-pink-700 leading-relaxed mb-4">
+             jangan lupa bahwa perjalanan baru dimulai so keep grinding dan jangan pernah cape buat upgrade diri ya guys! Keep shining! semua impian dan masa depan cerah itu bisa terwujud, ur hard work gonna pay off big time, no cap!
+              </p>
+              <div class="mt-6 text-sm text-blue-600">
+                -everru
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Music Player -->
+        <div class="fixed bottom-4 right-4 glass rounded-full p-3 shadow-lg">
+          <button
+            id="musicBtn"
+            class="text-white text-2xl hover:scale-110 transition-transform"
+          >
+            🎵
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Audio Element - GANTI LAGU MP3 DI SINI -->
+    <audio id="bgMusic" loop>
+      <source src="celebration-song.mp3" type="audio/mpeg" />
+      <!-- Backup jika file lokal tidak ada -->
+      <source
+        src="assets/music/gradu.mp3"
+        type="audio/wav"
+      />
+    </audio>
+
+    <script>
+      // Music Control
+      const musicBtn = document.getElementById("musicBtn");
+      const bgMusic = document.getElementById("bgMusic");
+      let isPlaying = false;
+
+      musicBtn.addEventListener("click", function () {
+        if (isPlaying) {
+          bgMusic.pause();
+          musicBtn.textContent = "🎵";
+          isPlaying = false;
+        } else {
+          bgMusic.play().catch((e) => {
+            console.log("Audio play failed:", e);
+          });
+          musicBtn.textContent = "🔇";
+          isPlaying = true;
+        }
+      });
+
+      // Auto play music when page loads (with user interaction)
+      document.addEventListener(
+        "click",
+        function () {
+          if (!isPlaying) {
+            bgMusic.play().catch((e) => {
+              console.log("Auto play failed:", e);
+            });
+            musicBtn.textContent = "🔇";
+            isPlaying = true;
+          }
+        },
+        { once: true }
+      );
+
+      // Add some interactive elements
+      document.querySelectorAll("img").forEach((img) => {
+        img.addEventListener("click", function () {
+          this.style.transform = "scale(1.05)";
+          setTimeout(() => {
+            this.style.transform = "scale(1)";
+          }, 200);
+        });
+      });
+
+      // Confetti click effect
+      document.addEventListener("click", function (e) {
+        createClickEffect(e.clientX, e.clientY);
+      });
+
+      function createClickEffect(x, y) {
+        for (let i = 0; i < 8; i++) {
+          const confetti = document.createElement("div");
+          confetti.className = "fixed w-2 h-2 rounded-full pointer-events-none";
+          confetti.style.left = x + "px";
+          confetti.style.top = y + "px";
+          confetti.style.background = ["#ff1493", "#ff69b4", "#ffc0cb"][
+            Math.floor(Math.random() * 3)
+          ];
+          confetti.style.animation = `confetti-fall 1s linear forwards`;
+          confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+          document.body.appendChild(confetti);
+
+          setTimeout(() => {
+            confetti.remove();
+          }, 1000);
+        }
+      }
+    </script>
+  </body>
+</html>
