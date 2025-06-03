@@ -20,13 +20,20 @@
         background-attachment: fixed;
       }
 
+      /* Responsive background attachment */
+      @media (max-width: 768px) {
+        .bg-custom {
+          background-attachment: scroll;
+        }
+      }
+
       .overlay {
-  background: linear-gradient(
-    135deg,
-    rgba(31, 152, 73, 0.9) 0%,
-    rgba(6, 74, 7, 0.8) 80%
-  );
-}
+        background: linear-gradient(
+          135deg,
+          rgba(31, 152, 73, 0.9) 0%,
+          rgba(6, 74, 7, 0.8) 80%
+        );
+      }
 
       /* Animations */
       .fade-in {
@@ -90,6 +97,23 @@
         }
       }
 
+      /* Responsive bounce animation for mobile */
+      @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateY(0);
+        }
+        40% {
+          transform: translateY(-10px);
+        }
+        60% {
+          transform: translateY(-5px);
+        }
+      }
+
       /* Confetti Animation */
       .confetti {
         position: fixed;
@@ -97,6 +121,15 @@
         height: 10px;
         background: #035413;
         animation: confetti-fall 3s linear infinite;
+        z-index: 10;
+      }
+
+      /* Responsive confetti size */
+      @media (max-width: 640px) {
+        .confetti {
+          width: 6px;
+          height: 6px;
+        }
       }
 
       @keyframes confetti-fall {
@@ -123,6 +156,14 @@
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
       }
 
+      /* Responsive photo frame */
+      @media (max-width: 640px) {
+        .photo-frame {
+          border: 3px solid white;
+          box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+      }
+
       /* Message card */
       .message-card {
         background: linear-gradient(
@@ -131,6 +172,31 @@
           rgba(255, 182, 193, 0.3) 100%
         );
         backdrop-filter: blur(15px);
+      }
+
+      /* Responsive text sizes */
+      @media (max-width: 640px) {
+        .text-responsive-6xl {
+          font-size: 3rem;
+        }
+        .text-responsive-4xl {
+          font-size: 2rem;
+        }
+        .text-responsive-2xl {
+          font-size: 1.5rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .text-responsive-6xl {
+          font-size: 2.5rem;
+        }
+        .text-responsive-4xl {
+          font-size: 1.75rem;
+        }
+        .text-responsive-2xl {
+          font-size: 1.25rem;
+        }
       }
     </style>
   </head>
@@ -176,56 +242,78 @@
       ></div>
 
       <!-- Main Container -->
-      <div class="container mx-auto px-4 py-8 min-h-screen flex flex-col">
+      <div
+        class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8 min-h-screen flex flex-col"
+      >
         <!-- Header -->
-        <div class="text-center fade-in mb-8">
-          <div class="text-6xl mb-4 float">🎓</div>
-          <h1 class="text-4xl font-bold text-white mb-2 drop-shadow-lg">
+        <div class="text-center fade-in mb-6 sm:mb-8">
+          <div class="text-responsive-6xl mb-4 float">🎓</div>
+          <h1
+            class="text-responsive-4xl font-bold text-white mb-2 drop-shadow-lg px-4"
+          >
             Congratulations!
           </h1>
-          <div class="text-2xl font-semibold text-white/90 drop-shadow-md">
+          <div
+            class="text-responsive-2xl font-semibold text-white/90 drop-shadow-md px-4"
+          >
             ✨ Mas Bayu ✨
           </div>
         </div>
 
         <!-- Photo Section -->
         <div
-          class="flex-1 flex flex-col items-center justify-center space-y-6 slide-up"
+          class="flex-1 flex flex-col items-center justify-center space-y-4 sm:space-y-6 slide-up"
         >
           <!-- Main Photo - GANTI FOTO DI SINI -->
           <div class="photo-frame rounded-2xl overflow-hidden">
             <img
               src="/assets/photos/bayu.jpg"
-              alt="Jamilia Graduation Photo"
-              class="w-64 h-64 object-cover"
+              alt="Bayu Graduation Photo"
+              class="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 object-cover"
               id="mainPhoto"
             />
           </div>
+        </div>
+
         <!-- Message Section -->
-        <div class="bounce-in">
-          <div class="message-card rounded-3xl p-6 mx-4 mb-8 shadow-2xl">
+        <div class="bounce-in mt-6">
+          <div
+            class="message-card rounded-2xl sm:rounded-3xl p-4 sm:p-6 mx-2 sm:mx-4 mb-6 sm:mb-8 shadow-2xl"
+          >
             <div class="text-center">
-              <h2 class="text-2xl font-bold text-green-800 mb-4">
+              <h2
+                class="text-lg sm:text-xl lg:text-2xl font-bold text-green-800 mb-3 sm:mb-4"
+              >
                 🌟 Happy graduation! 🌟
               </h2>
-              <p class="text-green-700 leading-relaxed mb-4">
-                Yeay, congrats guys atas kelulusannya! Semoga masuk SMA impian ya! 🎉
+              <p
+                class="text-sm sm:text-base text-green-700 leading-relaxed mb-3 sm:mb-4 px-2"
+              >
+                Yeay, congrats guys atas kelulusannya! Semoga masuk SMA impian
+                ya! 🎉
               </p>
-              <p class="text-green-700 leading-relaxed mb-4">
-                jangan lupa bahwa perjalanan baru dimulai so keep grinding dan jangan pernah cape buat upgrade diri ya guys! Keep shining! semua impian dan masa depan cerah itu bisa terwujud, ur hard work gonna pay off big time, no cap!
+              <p
+                class="text-sm sm:text-base text-green-700 leading-relaxed mb-3 sm:mb-4 px-2"
+              >
+                jangan lupa bahwa perjalanan baru dimulai so keep grinding dan
+                jangan pernah cape buat upgrade diri ya guys! Keep shining!
+                semua impian dan masa depan cerah itu bisa terwujud, ur hard
+                work gonna pay off big time, no cap!
               </p>
-              <div class="mt-6 text-sm text-blue-600">
-               -everru-
+              <div class="mt-4 sm:mt-6 text-xs sm:text-sm text-blue-600">
+                -everru-
               </div>
             </div>
           </div>
         </div>
 
         <!-- Music Player -->
-        <div class="fixed bottom-4 right-4 glass rounded-full p-3 shadow-lg">
+        <div
+          class="fixed bottom-4 right-4 glass rounded-full p-2 sm:p-3 shadow-lg z-20"
+        >
           <button
             id="musicBtn"
-            class="text-white text-2xl hover:scale-110 transition-transform"
+            class="text-white text-xl sm:text-2xl hover:scale-110 transition-transform"
           >
             🎵
           </button>
@@ -237,37 +325,36 @@
     <audio id="bgMusic" loop>
       <source src="celebration-song.mp3" type="audio/mpeg" />
       <!-- Backup jika file lokal tidak ada -->
-      <source
-        src="/assets/music/gradu.mp3"
-        type="audio/wav"
-      />
+      <source src="/assets/music/gradu.mp3" type="audio/wav" />
     </audio>
 
     <script>
       // Music Control
-         // Music Control
-         const musicBtn = document.getElementById("musicBtn");
+      const musicBtn = document.getElementById("musicBtn");
       const bgMusic = document.getElementById("bgMusic");
       let isPlaying = false;
 
       // Function to start music
       function startMusic() {
-        bgMusic.play().then(() => {
-          musicBtn.textContent = "🔇";
-          isPlaying = true;
-          console.log("Music started successfully!");
-        }).catch((e) => {
-          console.log("Audio play failed:", e);
-          // Jika gagal, tampilkan pesan untuk user klik tombol musik
-          musicBtn.style.animation = "bounce 1s infinite";
-        });
+        bgMusic
+          .play()
+          .then(() => {
+            musicBtn.textContent = "🔇";
+            isPlaying = true;
+            console.log("Music started successfully!");
+          })
+          .catch((e) => {
+            console.log("Audio play failed:", e);
+            // Jika gagal, tampilkan pesan untuk user klik tombol musik
+            musicBtn.style.animation = "bounce 1s infinite";
+          });
       }
 
       // Try to play music immediately when page loads
-      window.addEventListener('load', function() {
+      window.addEventListener("load", function () {
         // Set volume
         bgMusic.volume = 0.5;
-        
+
         // Coba play langsung
         startMusic();
       });
@@ -277,16 +364,16 @@
         if (!isPlaying) {
           startMusic();
           // Remove all event listeners after first successful play
-          document.removeEventListener('click', enableAudio);
-          document.removeEventListener('touchstart', enableAudio);
-          document.removeEventListener('keydown', enableAudio);
+          document.removeEventListener("click", enableAudio);
+          document.removeEventListener("touchstart", enableAudio);
+          document.removeEventListener("keydown", enableAudio);
         }
       }
 
       // Add multiple event listeners for first interaction
-      document.addEventListener('click', enableAudio, { once: true });
-      document.addEventListener('touchstart', enableAudio, { once: true });
-      document.addEventListener('keydown', enableAudio, { once: true });
+      document.addEventListener("click", enableAudio, { once: true });
+      document.addEventListener("touchstart", enableAudio, { once: true });
+      document.addEventListener("keydown", enableAudio, { once: true });
 
       // Music button control
       musicBtn.addEventListener("click", function () {
@@ -316,16 +403,18 @@
       });
 
       function createClickEffect(x, y) {
-        for (let i = 0; i < 8; i++) {
+        const confettiCount = window.innerWidth <= 640 ? 5 : 8; // Less confetti on mobile
+        for (let i = 0; i < confettiCount; i++) {
           const confetti = document.createElement("div");
           confetti.className = "fixed w-2 h-2 rounded-full pointer-events-none";
           confetti.style.left = x + "px";
           confetti.style.top = y + "px";
-          confetti.style.background = ["#ff1493", "#ff69b4", "#ffc0cb"][
+          confetti.style.background = ["#96ff96", "#15f969", "#3ec86c"][
             Math.floor(Math.random() * 3)
           ];
           confetti.style.animation = `confetti-fall 1s linear forwards`;
           confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+          confetti.style.zIndex = "15";
           document.body.appendChild(confetti);
 
           setTimeout(() => {
@@ -333,6 +422,13 @@
           }, 1000);
         }
       }
+
+      // Handle orientation change
+      window.addEventListener("orientationchange", function () {
+        setTimeout(function () {
+          window.scrollTo(0, 0);
+        }, 100);
+      });
     </script>
   </body>
 </html>
